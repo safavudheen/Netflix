@@ -19,7 +19,7 @@ const [urlId,setUrlId]=useState('')
         height: '450',
         width: '100%',
         playerVars: {
-          autoplay: 1,
+          autoplay: 0,
         },
     };
    
@@ -37,15 +37,15 @@ const [urlId,setUrlId]=useState('')
             setPlay(movie.id)
         }}
         className='banner'>
-            { urlId && <YouTube videoId={urlId.key} opts={opts}/>}
-            <div className='content'>
+       {urlId ? <YouTube videoId={urlId.key} opts={opts}/> : 
+           <div className='content'>
                 <h1 className='title'>{movie ? movie.title :""} </h1>
                 <div className='banner_button'>
                     <button className='button' onClick={()=>{setUrlId(movie.id )}}>Play</button>
                     <button className='button'>My List</button>
                 </div>
                 <h1 className='description'>{movie ? movie.overview :""} </h1>
-            </div>
+            </div>}
            
            <div className="fade_bottom"> </div> 
         </div>

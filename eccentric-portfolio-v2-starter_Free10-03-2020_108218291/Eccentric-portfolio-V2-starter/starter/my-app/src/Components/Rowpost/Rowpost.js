@@ -36,6 +36,7 @@ function Rowpost(props) {
     return (
         <div className='row'>
             <h2>{props.title}</h2>
+            { urlId && <YouTube videoId={urlId.key} opts={opts}/>}
             <div className="posters">
                 {movies.map((obj)=>
                 <img onClick={()=>handleMovie(obj.id)} className={props.isSmall ? 'smallPoster': 'poster'}
@@ -43,7 +44,7 @@ function Rowpost(props) {
                 )}
            </div>
 
-        { urlId && <YouTube videoId={urlId.key} opts={opts}/>}
+       
         </div>
     )
 }
